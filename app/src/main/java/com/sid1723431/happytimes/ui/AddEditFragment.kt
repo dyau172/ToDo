@@ -22,8 +22,8 @@ import kotlinx.android.synthetic.main.item_row.*
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
-class AddEditFragment : Fragment(R.layout.fragment_add_edit){
-    private val viewModel : AddEditViewModel by viewModels()
+class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
+    private val viewModel: AddEditViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,16 +50,16 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit){
                 viewModel.habitNotes = it.toString()
             }
 
-            textViewStartDate.addTextChangedListener{
+            textViewStartDate.addTextChangedListener {
                 viewModel.habitStartDay = it.toString()
             }
 
-            textViewEndDate.addTextChangedListener{
+            textViewEndDate.addTextChangedListener {
                 viewModel.habitEndDay = it.toString()
             }
 
 
-            checkBoxImportant.setOnCheckedChangeListener{ _, isChecked ->
+            checkBoxImportant.setOnCheckedChangeListener { _, isChecked ->
                 viewModel.habitImportance = isChecked
             }
 
@@ -72,16 +72,14 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit){
 
         button_start_date.setOnClickListener {
             val datePicker =
-                    MaterialDatePicker.Builder.datePicker()
-                            .setTitleText("Select start date")
-                            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                            .build()
+                MaterialDatePicker.Builder.datePicker()
+                    .setTitleText("Select start date")
+                    .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    .build()
 
 
 
             datePicker.addOnPositiveButtonClickListener() {
-                //viewModel.selectStartDate()
-
                 text_view_start_date.text = datePicker.headerText
                 Log.d("dateTest", "POSITIVE $text_view_start_date")
 
@@ -89,7 +87,7 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit){
 
                 var startDate = datePicker.headerText
                 startDate = viewModel.habitStartDay
-                Log.d("dateTest",  startDate)
+                Log.d("dateTest", startDate)
 
             }
 
@@ -109,28 +107,22 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit){
 
         button_end_date.setOnClickListener {
             val datePicker =
-                    MaterialDatePicker.Builder.datePicker()
-                            .setTitleText("Select end date")
-                            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                            .build()
+                MaterialDatePicker.Builder.datePicker()
+                    .setTitleText("Select end date")
+                    .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    .build()
 
 
 
             datePicker.addOnPositiveButtonClickListener() {
                 text_view_end_date.text = datePicker.headerText
 
-                Log.d("dateTest", "POSITIVE $text_view_end_date")
-
                 Log.d("dateTest", "Date String = ${datePicker.headerText}:: Date epoch value = $it")
 
-
-
                 var endDate = datePicker.headerText
-
                 Log.d("dateTesting", text_view_end_date.toString())
                 endDate = viewModel.habitEndDay
-                Log.d("dateTest",  endDate)
-
+                Log.d("dateTest", endDate)
             }
 
             datePicker.show(childFragmentManager, "TAG")
@@ -148,27 +140,25 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit){
         }
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.addEditEvent.collect { event ->
-                when(event){
+                when (event) {
                     is AddEditViewModel.AddEditEvent.ShowInvalidInputMessage -> {
                         Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_LONG).show()
                     }
                     is AddEditViewModel.AddEditEvent.NavigateBackWithResult -> {
                         binding.editTextHabitName.clearFocus()
                         setFragmentResult(
-                                "add_edit_request",
-                        bundleOf("add_edit_result" to event.result)
+                            "add_edit_request",
+                            bundleOf("add_edit_result" to event.result)
                         )
                         findNavController().popBackStack()
                     }
-                    is AddEditViewModel.AddEditEvent.SelectedStartDate ->  TODO()
+                    is AddEditViewModel.AddEditEvent.SelectedStartDate -> TODO()
 
                     is AddEditViewModel.AddEditEvent.SelectedEndDate -> TODO()
                 }.exhaustive
 
             }
         }
-
-
 
 
     }

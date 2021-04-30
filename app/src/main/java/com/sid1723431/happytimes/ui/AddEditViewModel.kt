@@ -41,7 +41,6 @@ class AddEditViewModel @ViewModelInject constructor(
             state.set("habitImportant", value)
         }
 
-
     var habitStartDay = state.get<String>("habitStartDay") ?: habit?.startDay ?: ""
         set(value) {
             field = value
@@ -65,14 +64,12 @@ class AddEditViewModel @ViewModelInject constructor(
     val addEditEvent = addEditEventChannel.receiveAsFlow()
 
     fun onSaveClick(){
-
-
         if (habitName.isBlank()) {
         showInvalidInputMessage("Name cannot be empty")
             return
         }
         if (habit != null){
-            val updatedHabit = habit.copy(name = habitName, important = habitImportance)
+            val updatedHabit = habit.copy(name = habitName, important = habitImportance, startDay = habitStartDay,  endDay = habitEndDay, notes = habitNotes)
             updateHabit(updatedHabit)
         }else{
             val newHabit = Habit(name = habitName, important = habitImportance, startDay = habitStartDay,  endDay = habitEndDay, notes = habitNotes)
@@ -92,9 +89,6 @@ class AddEditViewModel @ViewModelInject constructor(
         val constraintsBuilder =
                 CalendarConstraints.Builder()
                         .setValidator(DateValidatorPointForward.now())
-
-
-
           Log.i("startDates", dateTime)
 
     }
