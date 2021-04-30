@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/progressFragment"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
+        android:title="@string/title_progress" />
+
+    <item
+        android:id="@+id/challengeFragment"
+        android:icon="@drawable/ic_baseline_emoji_events_24"
+        android:title="@string/title_challenge" />
+
+</menu>

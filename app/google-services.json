@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "871561672898",
+    "project_id": "happytimes-51a76",
+    "storage_bucket": "happytimes-51a76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871561672898:android:008dde0f390411c03a635b",
+        "android_client_info": {
+          "package_name": "com.sid1723431.happytimes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871561672898-jom9iflhlm0aat9k2kqsckprjqderous.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2k9TlVly1uTFDqjBhqK9i6i-Iga1Cyeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871561672898-jom9iflhlm0aat9k2kqsckprjqderous.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

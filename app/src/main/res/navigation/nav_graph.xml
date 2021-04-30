@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sid1723431.happytimes.ui.HomeFragment"
+        android:label="Habit"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_addEditFragment"
+            app:destination="@id/addEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditFragment"
+        android:name="com.sid1723431.happytimes.ui.AddEditFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_edit">
+        <argument
+            android:name="habit"
+            android:defaultValue="@null"
+            app:argType="com.sid1723431.happytimes.data.Habit"
+            app:nullable="true" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/progressFragment"
+        android:name="com.sid1723431.happytimes.ui.ProgressFragment"
+        android:label="Progress"
+        tools:layout="@layout/fragment_progress" />
+    <fragment
+        android:id="@+id/deleteAllCompletedDialogFragment"
+        android:name="com.sid1723431.happytimes.ui.DeleteAllCompletedDialogFragment"
+        android:label="DeleteAllCompletedDialogFragment" />
+    <action
+        android:id="@+id/action_global_deleteAllCompletedDialogFragment"
+        app:destination="@id/deleteAllCompletedDialogFragment" />
+    <action
+        android:id="@+id/action_global_progressFragment"
+        app:destination="@id/progressFragment" />
+    <fragment
+        android:id="@+id/challengeFragment"
+        android:name="com.sid1723431.happytimes.ui.ChallengeFragment"
+        android:label="Challenge" />
+    <action
+        android:id="@+id/action_global_challengeFragment"
+        app:destination="@id/challengeFragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.sid1723431.happytimes.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.sid1723431.happytimes.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
