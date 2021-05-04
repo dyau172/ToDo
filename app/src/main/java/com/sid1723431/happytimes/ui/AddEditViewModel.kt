@@ -112,8 +112,6 @@ class AddEditViewModel @ViewModelInject constructor(
         data class ShowInvalidInputMessage(val msg: String) : AddEditEvent()
         data class NavigateBackWithResult(val result: Int) : AddEditEvent()
 
-        data class SelectedStartDate(val dateStart: String) : AddEditEvent()
-        data class SelectedEndDate(val dateEnd: String) : AddEditEvent()
     }
 
 
