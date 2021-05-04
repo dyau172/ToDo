@@ -148,9 +148,7 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
                         )
                         findNavController().popBackStack()
                     }
-                    is AddEditViewModel.AddEditEvent.SelectedStartDate -> TODO()
 
-                    is AddEditViewModel.AddEditEvent.SelectedEndDate -> TODO()
                 }.exhaustive
 
             }
