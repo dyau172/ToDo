@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/notes"
-                android:inputType="text" />
+                android:singleLine="false" />
 
         </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:id="@+id/linearLayout_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="start"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutFrequency">
 
@@ -93,7 +93,7 @@
             android:id="@+id/linearLayout_end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="start"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
