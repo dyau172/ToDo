@@ -21,6 +21,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.time.milliseconds
 
 class AddEditViewModel @ViewModelInject constructor(
         private val habitDao: HabitDao,
@@ -68,15 +69,22 @@ class AddEditViewModel @ViewModelInject constructor(
         showInvalidInputMessage("Name cannot be empty")
             return
         }
+        if(habitEndDay < habitStartDay) {
+            showInvalidDateMessage("End date is not valid")
+            return
+        }
         if (habit != null){
             val updatedHabit = habit.copy(name = habitName, important = habitImportance, startDay = habitStartDay,  endDay = habitEndDay, notes = habitNotes)
             updateHabit(updatedHabit)
+
         }else{
             val newHabit = Habit(name = habitName, important = habitImportance, startDay = habitStartDay,  endDay = habitEndDay, notes = habitNotes)
             Log.d("clickSave", "Something, $habitStartDay , $habitName")
             createHabit(newHabit)
         }
     }
+
+
 
 
     fun selectStartDate(){
@@ -108,9 +116,14 @@ class AddEditViewModel @ViewModelInject constructor(
         addEditEventChannel.send(AddEditEvent.ShowInvalidInputMessage(text))
     }
 
+    private fun showInvalidDateMessage(text: String) = viewModelScope.launch {
+        addEditEventChannel.send(AddEditEvent.ShowInvalidDateMessage(text))
+    }
+
     sealed class AddEditEvent{
         data class ShowInvalidInputMessage(val msg: String) : AddEditEvent()
         data class NavigateBackWithResult(val result: Int) : AddEditEvent()
+        data class ShowInvalidDateMessage(val msg: String) : AddEditEvent()
 
     }
 

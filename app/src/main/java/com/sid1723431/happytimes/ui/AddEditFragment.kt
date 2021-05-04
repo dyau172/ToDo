@@ -148,7 +148,9 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
                         )
                         findNavController().popBackStack()
                     }
-
+                    is AddEditViewModel.AddEditEvent.ShowInvalidDateMessage -> {
+                        Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_LONG).show()
+                    }
                 }.exhaustive
 
             }
