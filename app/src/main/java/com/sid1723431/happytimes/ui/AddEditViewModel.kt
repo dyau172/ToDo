@@ -69,7 +69,11 @@ class AddEditViewModel @ViewModelInject constructor(
         showInvalidInputMessage("Name cannot be empty")
             return
         }
-        if(habitEndDay < habitStartDay) {
+        if(habitStartDay > habitEndDay) {
+            showInvalidDateMessage("Start date is not valid")
+            return
+        }
+        if(habitEndDay <= habitStartDay) {
             showInvalidDateMessage("End date is not valid")
             return
         }

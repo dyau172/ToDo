@@ -58,7 +58,6 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
                 viewModel.habitEndDay = it.toString()
             }
 
-
             checkBoxImportant.setOnCheckedChangeListener { _, isChecked ->
                 viewModel.habitImportance = isChecked
             }
@@ -83,7 +82,7 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
 
                 Log.d("dateTest", "Date String = ${datePicker.headerText}:: Date epoch value = $it")
 
-                var startDate = datePicker.headerText
+               var startDate = datePicker.headerText
                 startDate = viewModel.habitStartDay
                 Log.d("dateTest", startDate)
 

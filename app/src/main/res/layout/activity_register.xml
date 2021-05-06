@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,6 +28,7 @@
         android:layout_marginTop="176dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/prompt_email"
+        style="@style/LoginText"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +44,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/prompt_password"
+        style="@style/LoginText"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -86,7 +89,6 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_register">
@@ -96,13 +98,14 @@
             android:id="@+id/text_view_no_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/LoginText"
             android:text="@string/have_an_account" />
 
         <TextView
             android:id="@+id/text_view_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            style="@style/LoginText"
             android:foreground="?attr/selectableItemBackground"
             android:padding="5dp"
             android:text="@string/login"
