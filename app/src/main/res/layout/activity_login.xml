@@ -13,7 +13,6 @@
         android:layout_marginTop="200dp"
         android:text="@string/app_name"
         android:textSize="@dimen/title_textSize"
-
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -98,34 +97,31 @@
 
 
     <LinearLayout
-
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
             android:id="@+id/text_view_no_account"
+            style="@style/LoginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/LoginText"
             android:text="@string/don_t_have_an_account" />
 
         <TextView
             android:id="@+id/tv_register"
+            style="@style/LoginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/LoginText"
             android:foreground="?attr/selectableItemBackground"
             android:padding="5dp"
             android:text="@string/register"
