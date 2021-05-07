@@ -5,4 +5,9 @@
         <item name="android:backgroundTint">@color/colorWhite</item>
         <item name="android:textColor">@color/colorLightGray</item>
     </style>
+    <style name="TitleText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textSize">@dimen/H4_size</item>
+    </style>
 </resources>
