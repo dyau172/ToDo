@@ -19,7 +19,6 @@ class RegisterActivity : AppCompatActivity() {
 
         text_view_login.setOnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
-
         }
 
         button_register.setOnClickListener{
@@ -29,25 +28,20 @@ class RegisterActivity : AppCompatActivity() {
                         "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
-
                 }
-
                 TextUtils.isEmpty(edit_text_register_password.text.toString().trim{ it <= ' '}) ->{
                     Toast.makeText(this@RegisterActivity,
                         "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
                 else ->{
                     val email: String = edit_text_register_username.text.toString().trim{ it <= ' '}
                     val password: String = edit_text_register_password.text.toString().trim{it <= ' '}
-
                     //Create an instance and create register user with email and password
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult>{ task ->
-
                                 //If registration is successful
                                 if(task.isSuccessful) {
                                     //Firebase registered user
@@ -57,9 +51,6 @@ class RegisterActivity : AppCompatActivity() {
                                         "You have registered successfully",
                                         Toast.LENGTH_SHORT
                                     ).show()
-
-
-
                                     val intent =
                                         Intent(this@RegisterActivity, MainActivity::class.java)
                                     intent.flags =
