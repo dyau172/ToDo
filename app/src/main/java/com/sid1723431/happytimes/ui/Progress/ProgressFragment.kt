@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui
+package com.sid1723431.happytimes.ui.Progress
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

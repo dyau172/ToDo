@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui
+package com.sid1723431.happytimes.ui.AddEdit
 
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +7,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.*
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -16,9 +15,7 @@ import com.sid1723431.happytimes.R
 import com.sid1723431.happytimes.databinding.FragmentAddEditBinding
 import com.sid1723431.happytimes.util.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_add_edit.*
-import kotlinx.android.synthetic.main.item_row.*
 import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint

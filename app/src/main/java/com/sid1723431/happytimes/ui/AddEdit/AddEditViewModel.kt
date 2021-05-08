@@ -1,10 +1,6 @@
-package com.sid1723431.happytimes.ui
+package com.sid1723431.happytimes.ui.AddEdit
 
-import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.util.rangeTo
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
@@ -12,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.sid1723431.happytimes.ADD_TASK_RESULT_OK
 import com.sid1723431.happytimes.EDIT_TASK_RESULT_OK
 import com.sid1723431.happytimes.data.Habit
@@ -21,7 +16,6 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.time.milliseconds
 
 class AddEditViewModel @ViewModelInject constructor(
         private val habitDao: HabitDao,
@@ -104,20 +98,36 @@ class AddEditViewModel @ViewModelInject constructor(
 
     private fun createHabit(habit: Habit) = viewModelScope.launch {
         habitDao.insert(habit)
-        addEditEventChannel.send(AddEditEvent.NavigateBackWithResult(ADD_TASK_RESULT_OK))
+        addEditEventChannel.send(
+            AddEditEvent.NavigateBackWithResult(
+                ADD_TASK_RESULT_OK
+            )
+        )
     }
 
     private fun updateHabit(habit: Habit) = viewModelScope.launch {
         habitDao.update(habit)
-        addEditEventChannel.send(AddEditEvent.NavigateBackWithResult(EDIT_TASK_RESULT_OK))
+        addEditEventChannel.send(
+            AddEditEvent.NavigateBackWithResult(
+                EDIT_TASK_RESULT_OK
+            )
+        )
     }
 
     private fun showInvalidInputMessage(text: String) = viewModelScope.launch{
-        addEditEventChannel.send(AddEditEvent.ShowInvalidInputMessage(text))
+        addEditEventChannel.send(
+            AddEditEvent.ShowInvalidInputMessage(
+                text
+            )
+        )
     }
 
     private fun showInvalidDateMessage(text: String) = viewModelScope.launch {
-        addEditEventChannel.send(AddEditEvent.ShowInvalidDateMessage(text))
+        addEditEventChannel.send(
+            AddEditEvent.ShowInvalidDateMessage(
+                text
+            )
+        )
     }
 
     sealed class AddEditEvent{

@@ -1,32 +1,17 @@
 package com.sid1723431.happytimes
 
 import android.app.Activity
-import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.FrameLayout
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.replace
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.sid1723431.happytimes.ui.ChallengeFragment
-import com.sid1723431.happytimes.ui.HomeFragment
-import com.sid1723431.happytimes.ui.HomeFragmentDirections
-import com.sid1723431.happytimes.ui.ProgressFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_add_edit.*
-import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

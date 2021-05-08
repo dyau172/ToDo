@@ -1,14 +1,10 @@
-package com.sid1723431.happytimes.ui
+package com.sid1723431.happytimes.ui.Home
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignIn.getLastSignedInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.sid1723431.happytimes.ADD_TASK_RESULT_OK
 import com.sid1723431.happytimes.EDIT_TASK_RESULT_OK
 import com.sid1723431.happytimes.PreferenceManager
@@ -61,7 +57,11 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     fun onHabitSelected(habit: Habit) = viewModelScope.launch{
-        taskEventChannel.send(TaskEvent.NavigateToEditHabitScreen(habit))
+        taskEventChannel.send(
+            TaskEvent.NavigateToEditHabitScreen(
+                habit
+            )
+        )
     }
 
     fun onHabitCheckedChanged(habit: Habit, isChecked: Boolean) = viewModelScope.launch {
@@ -69,7 +69,11 @@ class HomeViewModel @ViewModelInject constructor(
     }
     fun onTaskSwiped(habit: Habit) = viewModelScope.launch {
         habitDao.delete(habit)
-        taskEventChannel.send(TaskEvent.ShowUndoDeleteTaskManager(habit))
+        taskEventChannel.send(
+            TaskEvent.ShowUndoDeleteTaskManager(
+                habit
+            )
+        )
     }
 
     fun onUndoDeleteClick(habit: Habit) = viewModelScope.launch{
@@ -88,7 +92,11 @@ class HomeViewModel @ViewModelInject constructor(
     }
 
     private fun showTaskSavedConfirmationMessage(text: String) = viewModelScope.launch {
-        taskEventChannel.send(TaskEvent.ShowTaskSavedConfirmation(text))
+        taskEventChannel.send(
+            TaskEvent.ShowTaskSavedConfirmation(
+                text
+            )
+        )
     }
 
     fun onDeleteAllCompletedClick() = viewModelScope.launch {

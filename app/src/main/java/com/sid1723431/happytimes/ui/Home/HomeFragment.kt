@@ -1,10 +1,9 @@
-package com.sid1723431.happytimes.ui
+package com.sid1723431.happytimes.ui.Home
 
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -18,16 +17,18 @@ import com.sid1723431.happytimes.R
 import com.sid1723431.happytimes.SortOrder
 import com.sid1723431.happytimes.data.Habit
 import com.sid1723431.happytimes.databinding.FragmentHomeBinding
+import com.sid1723431.happytimes.ui.Home.HomeFragmentDirections
+import com.sid1723431.happytimes.ui.ItemAdapter
 import com.sid1723431.happytimes.util.exhaustive
 import com.sid1723431.happytimes.util.onQueryTextChanged
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home), ItemAdapter.OnItemClickListener {
+class HomeFragment : Fragment(R.layout.fragment_home),
+    ItemAdapter.OnItemClickListener {
 
     private val viewModel : HomeViewModel by viewModels()
     private lateinit var searchView: SearchView
@@ -81,18 +82,27 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemAdapter.OnItemClickLi
                                 }.show()
                     }
                     is HomeViewModel.TaskEvent.NavigateToAddHabitScreen -> {
-                        val action = HomeFragmentDirections.actionHomeFragmentToAddEditFragment(null, "New Habit")
+                        val action =
+                            HomeFragmentDirections.actionHomeFragmentToAddEditFragment(
+                                null,
+                                "New Habit"
+                            )
                         findNavController().navigate(action)
                     }
                     is HomeViewModel.TaskEvent.NavigateToEditHabitScreen -> {
-                        val action = HomeFragmentDirections.actionHomeFragmentToAddEditFragment(event.habit, "Edit Habit")
+                        val action =
+                            HomeFragmentDirections.actionHomeFragmentToAddEditFragment(
+                                event.habit,
+                                "Edit Habit"
+                            )
                         findNavController().navigate(action)
                     }
                     is HomeViewModel.TaskEvent.ShowTaskSavedConfirmation -> {
                         Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_SHORT).show()
                     }
                     HomeViewModel.TaskEvent.NavigateToDeleteAllCompletedScreen -> {
-                        val action = HomeFragmentDirections.actionGlobalDeleteAllCompletedDialogFragment()
+                        val action =
+                            HomeFragmentDirections.actionGlobalDeleteAllCompletedDialogFragment()
                         findNavController().navigate(action)
                     }
 
