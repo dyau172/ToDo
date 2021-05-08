@@ -51,14 +51,12 @@ class LoginActivity : AppCompatActivity() {
 
 
         button_login.setOnClickListener {
-
             when{
                 TextUtils.isEmpty(login_username.text.toString().trim{ it <= ' '}) ->{
                     Toast.makeText(this@LoginActivity,
                         "Please enter email.",
                         Toast.LENGTH_SHORT
                     ).show()
-
                 }
 
                 TextUtils.isEmpty(login_password.text.toString().trim{ it <= ' '}) ->{
@@ -67,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
                 else ->{
                     val email: String = login_username.text.toString().trim{ it <= ' '}
                     val password: String = login_password.text.toString().trim{it <= ' '}
@@ -76,19 +73,14 @@ class LoginActivity : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult>{ task ->
-
                                 //If registration is successful
                                 if(task.isSuccessful) {
                                     //Firebase registered user
                                     val firebaseUser: FirebaseUser = task.result!!.user!!
-
                                     Toast.makeText(this@LoginActivity,
                                         "Hello " + email + "You have logged in successfully",
                                         Toast.LENGTH_LONG
                                     ).show()
-
-
-
                                     val intent =
                                         Intent(this@LoginActivity, MainActivity::class.java)
                                     intent.flags =
