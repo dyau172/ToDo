@@ -34,19 +34,15 @@ class LoginActivity : AppCompatActivity() {
 
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-
                 .requestEmail()
                   //.requestIdToken(getString(R.string.default_web_client_id))
                 .build()
 
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         mGoogleSignInClient.signOut()
-
         button_google_signin.setOnClickListener {
             val signInIntent = mGoogleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
-
         }
 
 
@@ -110,7 +106,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
@@ -118,7 +113,6 @@ class LoginActivity : AppCompatActivity() {
             val task =
                 GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
-
         }
     }
 
@@ -127,14 +121,11 @@ class LoginActivity : AppCompatActivity() {
             val acct =
                 completedTask.getResult(ApiException::class.java)
             val name = acct!!.givenName
-
             // Signed in successfully, show authenticated UI.
             Toast.makeText(this,
                     "Hello $name",
             Toast.LENGTH_LONG).show()
-
             startActivity(Intent(this, MainActivity::class.java))
-
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
