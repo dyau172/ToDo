@@ -76,12 +76,11 @@ class AddEditFragment : Fragment(R.layout.fragment_add_edit) {
             datePicker.addOnPositiveButtonClickListener() {
                 text_view_start_date.text = datePicker.headerText
                 Log.d("dateTest", "POSITIVE $text_view_start_date")
-
                 Log.d("dateTest", "Date String = ${datePicker.headerText}:: Date epoch value = $it")
 
                var startDate = datePicker.headerText
                 startDate = viewModel.habitStartDay
-                Log.d("dateTest", startDate)
+
 
             }
 
