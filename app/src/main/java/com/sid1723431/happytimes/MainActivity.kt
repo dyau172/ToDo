@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
 
@@ -30,22 +29,13 @@ class MainActivity : AppCompatActivity() {
                 //top level destinations
                 setOf(R.id.homeFragment, R.id.progressFragment, R.id.challengeFragment)
         )
-
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         nav_view.setupWithNavController(navController)
-
-
-
-
-
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
 
 }
 
