@@ -29,9 +29,9 @@ abstract class HabitDatabase : RoomDatabase() {
             //GlobalScope
 
             applicationScope.launch {
-                dao.insert(Habit("Eat Pizza", " ", " ", ""))
-                dao.insert(Habit("Go for a run",  " ", " ", "", important = true))
-                dao.insert(Habit("Fish for a compliment", " ", " ", "", completed = true))
+                dao.insert(Habit("Eat Pizza", "May 1, 2021", "May 5, 2021 ", ""))
+                dao.insert(Habit("Go for a run",  "Apr 12, 2021", "Apr 30, 2021", "", important = true))
+                dao.insert(Habit("Fish for a compliment", "Apr 12, 2021", "Apr 15, 2021", "", completed = true))
             }
         }
     }
