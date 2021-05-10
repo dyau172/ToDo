@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="H4_size">34sp</dimen>
+    <dimen name="H6_size">20sp</dimen>
+    <dimen name="body_1_size">16sp</dimen>
 </resources>
