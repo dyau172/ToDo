@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-      style="@style/TitleText"
+      style="@style/style_title_text"
+        android:text="@string/app_name"
         app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,9 +29,7 @@
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-        android:textColorHint="@color/colorLightGray"
-        android:backgroundTint="@color/colorWhite"
-        android:textColor="@color/colorLightGray"
+        style="@style/style_login_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +43,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/prompt_password"
-        style="@style/LoginText"
+        style="@style/style_login_text"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -111,14 +110,14 @@
 
         <TextView
             android:id="@+id/text_view_no_account"
-            style="@style/LoginText"
+            style="@style/style_login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/don_t_have_an_account" />
 
         <TextView
             android:id="@+id/tv_register"
-            style="@style/LoginText"
+            style="@style/style_login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"

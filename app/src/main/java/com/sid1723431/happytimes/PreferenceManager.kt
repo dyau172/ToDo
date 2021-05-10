@@ -31,7 +31,6 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
             }else{
                 throw exception
             }
-
         }
         .map { preferences ->
             val sortOrder = SortOrder.valueOf(
@@ -40,25 +39,20 @@ class PreferenceManager @Inject constructor(@ApplicationContext context: Context
             val hideCompleted = preferences[PreferenceKeys.HIDE_COMPLETED] ?: false
             FilterPreferences(sortOrder, hideCompleted)
         }
-
     //updating datastore
-
     suspend fun updateSortOrder(sortOrder: SortOrder){
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.SORT_ORDER] = sortOrder.name
         }
     }
-
-
     suspend fun updateHideCompleted(hideCompleted: Boolean) {
         dataStore.edit { preferences ->
             preferences[PreferenceKeys.HIDE_COMPLETED] = hideCompleted
         }
     }
-
-
     private object PreferenceKeys{
         val SORT_ORDER = preferencesKey<String>("sort_order")
         val HIDE_COMPLETED = preferencesKey<Boolean>("hide_completed")
     }
 }
+
