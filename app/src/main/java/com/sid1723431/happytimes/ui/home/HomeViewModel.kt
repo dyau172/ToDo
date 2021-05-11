@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui.Home
+package com.sid1723431.happytimes.ui.home
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
@@ -22,8 +22,6 @@ class HomeViewModel @ViewModelInject constructor(
 ) : ViewModel(){
 
     //val searchQuery = MutableStateFlow("")
-
-
     lateinit var mAuth: FirebaseAuth
     lateinit var mGoogleSignInClient: GoogleSignInClient
 
@@ -99,24 +97,20 @@ class HomeViewModel @ViewModelInject constructor(
         )
     }
 
-    fun onDeleteAllCompletedClick() = viewModelScope.launch {
-        taskEventChannel.send(TaskEvent.NavigateToDeleteAllCompletedScreen)
-    }
-
     fun logoutClick(){
         if(mGoogleSignInClient != null ){
             mGoogleSignInClient.signOut()
         }else
           mAuth.signOut()
 
-
-
+    }
+    fun onDeleteAllCompletedClick() = viewModelScope.launch {
+        taskEventChannel.send(TaskEvent.NavigateToDeleteAllCompletedScreen)
     }
 
 
     sealed class TaskEvent{
         object NavigateToAddHabitScreen: TaskEvent()
-
         data class NavigateToEditHabitScreen(val habit: Habit) : TaskEvent()
         data class ShowUndoDeleteTaskManager(val habit: Habit) : TaskEvent()
         data class ShowTaskSavedConfirmation(val msg: String) : TaskEvent()

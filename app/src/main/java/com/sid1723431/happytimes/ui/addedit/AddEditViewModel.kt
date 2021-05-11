@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui.AddEdit
+package com.sid1723431.happytimes.ui.addedit
 
 import android.util.Log
 import androidx.hilt.Assisted
@@ -6,8 +6,6 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.DateValidatorPointForward
 import com.sid1723431.happytimes.ADD_TASK_RESULT_OK
 import com.sid1723431.happytimes.EDIT_TASK_RESULT_OK
 import com.sid1723431.happytimes.data.Habit
@@ -15,7 +13,6 @@ import com.sid1723431.happytimes.data.HabitDao
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.util.*
 
 class AddEditViewModel @ViewModelInject constructor(
         private val habitDao: HabitDao,
@@ -77,24 +74,6 @@ class AddEditViewModel @ViewModelInject constructor(
             createHabit(newHabit)
         }
     }
-
-
-
-
-    fun selectStartDate(){
-
-        val calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+1"))
-        calendar.time = Date()
-        val dateTime = "${calendar.get(Calendar.DAY_OF_MONTH)}- " +
-                "${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.YEAR)}"
-
-        val constraintsBuilder =
-                CalendarConstraints.Builder()
-                        .setValidator(DateValidatorPointForward.now())
-          Log.i("startDates", dateTime)
-
-    }
-
 
     private fun createHabit(habit: Habit) = viewModelScope.launch {
         habitDao.insert(habit)

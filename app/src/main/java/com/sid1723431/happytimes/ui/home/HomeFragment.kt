@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui.Home
+package com.sid1723431.happytimes.ui.home
 
 import android.os.Bundle
 import android.view.*
@@ -17,7 +17,6 @@ import com.sid1723431.happytimes.R
 import com.sid1723431.happytimes.SortOrder
 import com.sid1723431.happytimes.data.Habit
 import com.sid1723431.happytimes.databinding.FragmentHomeBinding
-import com.sid1723431.happytimes.ui.Home.HomeFragmentDirections
 import com.sid1723431.happytimes.ui.ItemAdapter
 import com.sid1723431.happytimes.util.exhaustive
 import com.sid1723431.happytimes.util.onQueryTextChanged

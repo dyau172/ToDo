@@ -1,11 +1,9 @@
-package com.sid1723431.happytimes.ui.AddEdit
+package com.sid1723431.happytimes.ui.addedit
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.*
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController

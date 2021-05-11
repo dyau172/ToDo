@@ -1,4 +1,4 @@
-package com.sid1723431.happytimes.ui.Progress
+package com.sid1723431.happytimes.ui.progress
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
