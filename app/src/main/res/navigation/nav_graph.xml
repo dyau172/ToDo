@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sid1723431.happytimes.ui.Home.HomeFragment"
+        android:name="com.sid1723431.happytimes.ui.home.HomeFragment"
         android:label="Habit"
         tools:layout="@layout/fragment_home">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/addEditFragment"
-        android:name="com.sid1723431.happytimes.ui.AddEdit.AddEditFragment"
+        android:name="com.sid1723431.happytimes.ui.addedit.AddEditFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_add_edit">
         <argument
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/progressFragment"
-        android:name="com.sid1723431.happytimes.ui.Progress.ProgressFragment"
+        android:name="com.sid1723431.happytimes.ui.progress.ProgressFragment"
         android:label="Progress"
         tools:layout="@layout/fragment_progress" />
     <fragment
@@ -45,7 +45,7 @@
         app:destination="@id/progressFragment" />
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="com.sid1723431.happytimes.ui.Challenge.ChallengeFragment"
+        android:name="com.sid1723431.happytimes.ui.challenge.ChallengeFragment"
         android:label="Challenge" />
     <action
         android:id="@+id/action_global_challengeFragment"
@@ -60,7 +60,4 @@
         android:name="com.sid1723431.happytimes.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
-    <activity
-        android:id="@+id/registerActivity"
-        android:label="{title}" />
 </navigation>
