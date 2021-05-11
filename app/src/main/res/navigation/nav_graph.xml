@@ -35,8 +35,7 @@
         tools:layout="@layout/fragment_progress" />
     <fragment
         android:id="@+id/deleteAllCompletedDialogFragment"
-        android:name="com.sid1723431.happytimes.ui.DeleteAllCompletedDialogFragment"
-        android:label="DeleteAllCompletedDialogFragment" />
+        android:name="com.sid1723431.happytimes.ui.DeleteAllCompletedDialogFragment" />
     <action
         android:id="@+id/action_global_deleteAllCompletedDialogFragment"
         app:destination="@id/deleteAllCompletedDialogFragment" />
